@@ -1,15 +1,29 @@
 return {
+  -- {
+  --   -- Theme inspired by Atom
+  --   "navarasu/onedark.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme("onedark")
+  --     local onedark = require("onedark")
+  --     onedark.setup({
+  --       style = "deep",
+  --     })
+  --     onedark.load()
+  --   end,
+  -- },
   {
-    -- Theme inspired by Atom
-    "navarasu/onedark.nvim",
+    "folke/tokyonight.nvim",
+    lazy = false,
     priority = 1000,
+    opts = {},
     config = function()
-      vim.cmd.colorscheme("onedark")
-      local onedark = require("onedark")
-      onedark.setup({
-        style = "deep",
+      vim.cmd.colorscheme("tokyonight")
+      local tokyo = require("tokyonight")
+      tokyo.setup({
+        style = "night",
       })
-      onedark.load()
+      tokyo.load()
     end,
   },
   -- {
