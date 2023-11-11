@@ -1,10 +1,15 @@
 return {
   {
-    "bluz71/vim-nightfly-guicolors",
-    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Theme inspired by Atom
+    "navarasu/onedark.nvim",
+    priority = 1000,
     config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme nightfly]])
+      vim.cmd.colorscheme("onedark")
+      local onedark = require("onedark")
+      onedark.setup({
+        style = "deep",
+      })
+      onedark.load()
     end,
   },
   -- {
