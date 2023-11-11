@@ -9,7 +9,7 @@ return {
 
     keymap.set(
       "n",
-      "<leader>hm",
+      "<leader>ha",
       "<cmd>lua require('harpoon.mark').add_file()<cr>",
       { desc = "Mark file with harpoon" }
     )

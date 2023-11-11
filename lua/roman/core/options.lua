@@ -16,6 +16,11 @@ opt.wrap = false -- disable line wrapping
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.incsearch = true -- highlight search as you input
+opt.hlsearch = false -- don't highlight searches
+
+-- scroll settings
+opt.scrolloff = 8 -- always have at least 8 lines from the cursor to the top or bottom of the file
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
@@ -44,3 +49,6 @@ opt.swapfile = false
 -- Case-insensitive searching UNLESS \C or capital in search
 opt.ignorecase = true
 opt.smartcase = true
+
+-- update time
+opt.updatetime = 50
