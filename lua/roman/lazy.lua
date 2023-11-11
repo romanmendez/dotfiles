@@ -12,9 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "roman.plugins" }, { import = "roman.plugins.lsp" } }, {
-  install = {
-    colorscheme = { "tokyonight" },
-  },
   checker = {
     enabled = true,
     notify = false,
