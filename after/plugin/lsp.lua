@@ -44,3 +44,13 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
+  local opts = {buffer = bufnr}
+
+  vim.keymap.set('n', '<leader>f', function()
+    vim.lsp.buf.format({async = false, timeout_ms = 10000})
+  end, opts)
+end)

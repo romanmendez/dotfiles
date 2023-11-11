@@ -65,5 +65,9 @@ return require('packer').startup(function(use)
   end
 }
 -- "gc" to comment visual regions/lines
-use {'numToStr/Comment.nvim'}
+use {'numToStr/Comment.nvim',
+config = function()
+        require('Comment').setup()
+    end
+}
   end)
