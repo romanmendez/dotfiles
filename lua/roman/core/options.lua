@@ -40,3 +40,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- Case-insensitive searching UNLESS \C or capital in search
+opt.ignorecase = true
+opt.smartcase = true
