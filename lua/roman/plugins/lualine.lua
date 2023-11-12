@@ -82,9 +82,8 @@ return {
         },
         lualine_x = {
           {
-            "searchcount",
-            maxcount = 999,
-            timeout = 500,
+            "buffers",
+            mode = 4,
           },
         },
         lualine_y = { "progress" },
