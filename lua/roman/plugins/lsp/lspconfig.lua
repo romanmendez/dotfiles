@@ -59,17 +59,17 @@ return {
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
       opts.desc = "Format buffer"
-      keymap.set(
-        "n",
-        "<leader>=",
-        vim.lsp.buf.format({
-          filter = function(formatClient)
-            --  only use null-ls for formatting instead of lsp server
-            return formatClient.name == "null-ls"
-          end,
-        }),
-        opts
-      ) -- mapping to restart lsp if necessary
+      -- keymap.set(
+      --   "n",
+      --   "<leader>=",
+      --   vim.lsp.buf.format({
+      --     filter = function(formatClient)
+      --       --  only use null-ls for formatting instead of lsp server
+      --       return formatClient.name == "none-ls"
+      --     end,
+      --   }),
+      --   opts
+      -- )
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
