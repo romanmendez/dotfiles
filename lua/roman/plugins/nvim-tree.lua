@@ -1,6 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local nvimtree = require("nvim-tree")
 
@@ -29,6 +29,9 @@ return {
               arrow_closed = "", -- arrow when folder is closed
               arrow_open = "", -- arrow when folder is open
             },
+          },
+          show = {
+            file = false, -- no file icons
           },
         },
       },

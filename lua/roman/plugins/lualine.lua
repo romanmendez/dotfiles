@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {
       icons_enabled = false,
@@ -84,6 +84,7 @@ return {
           {
             "buffers",
             mode = 4,
+            max_length = vim.o.columns * 2 / 3,
           },
         },
         lualine_y = { "progress" },
