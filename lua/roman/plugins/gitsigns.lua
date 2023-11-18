@@ -2,7 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local gs = require("gitsigns").setup({
+    require("gitsigns").setup({
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 

@@ -26,16 +26,6 @@ keymap.set("x", "<leader>p", '"_dP') -- delete and paste
 keymap.set({ "n", "v" }, "<leader>y", '"+y')
 keymap.set({ "n", "v" }, "<leader>Y", '"+Y')
 
--- highlight on yank
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
-})
-
 -- Search and replace
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

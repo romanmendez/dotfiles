@@ -14,7 +14,6 @@ return {
 
     -- configure nvim-tree
     nvimtree.setup({
-      auto_close = true, -- closes tree when closing last window (but doesn't seem to be working)
       view = {
         width = 35,
         relativenumber = true,

@@ -13,14 +13,22 @@ return {
   --     tokyo.load()
   --   end,
   -- },
+  -- {
+  --   "rockyzhang24/arctic.nvim",
+  --   dependencies = { "rktjmp/lush.nvim" },
+  --   name = "arctic",
+  --   branch = "main",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("colorscheme arctic")
+  --   end,
+  -- },
   {
-    "rockyzhang24/arctic.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
-    name = "arctic",
-    branch = "main",
+    -- Theme inspired by Atom
+    "navarasu/onedark.nvim",
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme arctic")
+      vim.cmd.colorscheme("onedark")
     end,
   },
 }
