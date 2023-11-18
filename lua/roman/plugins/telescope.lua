@@ -10,6 +10,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
+    local themes = require("telescope.themes")
 
     telescope.setup({
       defaults = {
@@ -22,6 +23,7 @@ return {
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
+        cache_picker = true, -- so builtin.resume() will work
         color_devicons = false, -- no icons
       },
     })
@@ -57,7 +59,7 @@ return {
     local function live_grep_git_root()
       local git_root = find_git_root()
       if git_root then
-        telescope.builtin.live_grep({
+        builtin.live_grep({
           search_dirs = { git_root },
         })
       end
@@ -70,7 +72,7 @@ return {
     vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
     vim.keymap.set("n", "<leader>/", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
-      telescope.builtin.current_buffer_fuzzy_find(telescope.themes.get_dropdown({
+      builtin.current_buffer_fuzzy_find(themes.get_dropdown({
         winblend = 10,
         previewer = false,
       }))
@@ -79,9 +81,12 @@ return {
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<leader>ff", "<cmd>Telescope git_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles in cwd" })
+    keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind in current [G]it repo" })
+    keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
+    keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind current [W]ord" })
+    keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
+    keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
+    keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "[F]ind [S]tring" })
   end,
 }
