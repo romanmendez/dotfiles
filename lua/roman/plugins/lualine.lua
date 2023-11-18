@@ -80,13 +80,7 @@ return {
             },
           },
         },
-        lualine_x = {
-          {
-            "buffers",
-            mode = 4,
-            max_length = vim.o.columns * 2 / 3,
-          },
-        },
+        lualine_x = {},
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

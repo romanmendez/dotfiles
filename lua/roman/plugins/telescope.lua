@@ -12,6 +12,7 @@ return {
 
     telescope.setup({
       defaults = {
+        file_ignore_patterns = { "package-lock.json" },
         path_display = { "truncate " },
         mappings = {
           i = {

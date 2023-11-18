@@ -4,6 +4,8 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-nvim-lua", -- source for lua lsp
+    "hrsh7th/cmp-nvim-lsp", -- auto-import on complete, expanding snippets
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
@@ -39,17 +41,29 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
+        { name = "nvim_lua" },
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
+        { name = "buffer", keyword_length = 5, max_item_count = 10 }, -- text within current buffer, start autocompletion after 5 characters
         { name = "path" }, -- file system paths
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
+          mode = "text",
+          preset = "codicons",
+          menu = {
+            buffer = "[buf]",
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[api]",
+            path = "[path]",
+            luasnip = "[snip]",
+          },
         }),
+      },
+      experimental = {
+        native_menu = false,
+        ghost_text = true,
       },
     })
   end,
