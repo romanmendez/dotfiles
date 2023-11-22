@@ -69,7 +69,6 @@ return {
 
     -- See `:help telescope.builtin`
     -- vim.keymap.set('n', '<leader>?', telescope.builtin.oldfiles, { desc = '[?] Find recently opened files' })
-    vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
     vim.keymap.set("n", "<leader>/", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       builtin.current_buffer_fuzzy_find(themes.get_dropdown({
@@ -88,5 +87,6 @@ return {
     keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
     keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
     keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "[F]ind [S]tring" })
+    keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind [B]uffers" })
   end,
 }
