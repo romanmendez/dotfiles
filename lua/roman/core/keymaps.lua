@@ -2,7 +2,6 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
-
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
@@ -31,8 +30,8 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 
 -- keep the cursor in place
 keymap.set("n", "J", "mzJ`z") -- when appending the next line to the end of the current
-keymap.set("n", "<leader>j", "<C-d>zz") -- when moving half-pages down
-keymap.set("n", "<leader>k", "<C-u>zz") -- when moving half-pages up
+keymap.set({ "n", "v" }, "<leader>j", "<C-d>zz") -- when moving half-pages down
+keymap.set({ "n", "v" }, "<leader>k", "<C-u>zz") -- when moving half-pages up
 keymap.set("n", "n", "nzzzv") -- when navigating through search terms
 keymap.set("n", "N", "Nzzzv") -- when navigating through search terms
 
