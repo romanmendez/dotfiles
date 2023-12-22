@@ -30,10 +30,17 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 
 -- keep the cursor in place
 keymap.set("n", "J", "mzJ`z") -- when appending the next line to the end of the current
-keymap.set({ "n", "v" }, "<leader>j", "<C-d>zz") -- when moving half-pages down
-keymap.set({ "n", "v" }, "<leader>k", "<C-u>zz") -- when moving half-pages up
 keymap.set("n", "n", "nzzzv") -- when navigating through search terms
 keymap.set("n", "N", "Nzzzv") -- when navigating through search terms
+
+-- moving around the document
+keymap.set({ "n", "v" }, "<leader>j", "<C-d>") -- when moving half-pages down
+keymap.set({ "n", "v" }, "<leader>k", "<C-u>") -- when moving half-pages up
+keymap.set({ "n", "v" }, "<CR>", "}") -- jump down between line-breaks with return key
+keymap.set({ "n", "v" }, "<BS>", "{") -- jump up between line-breaks with delete key
+
+-- buffer navigation
+keymap.set("n", "<C-]>", "<cmd>bnext<CR>")
 
 -- Nop
 keymap.set("n", "<C-u>", "<Nop>")

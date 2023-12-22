@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-path", -- source for file system paths
     "hrsh7th/cmp-nvim-lua", -- source for lua lsp
     "hrsh7th/cmp-nvim-lsp", -- auto-import on complete, expanding snippets
+    -- "hrsh7th/cmp-nvim-lsp-signature-help", -- displaying function signatures with the current parameter emphasized
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
@@ -50,7 +51,7 @@ return {
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
-          mode = "text",
+          mode = "symbol_text",
           preset = "codicons",
           menu = {
             buffer = "[buf]",
@@ -63,8 +64,24 @@ return {
       },
       experimental = {
         native_menu = false,
-        ghost_text = true,
+        ghost_text = false,
       },
     })
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+    })
+    -- Add vim-dadbod-completion in sql files
+    _ = vim.cmd([[
+      augroup DadbodSql
+        au!
+        autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+      augroup END
+    ]])
   end,
 }

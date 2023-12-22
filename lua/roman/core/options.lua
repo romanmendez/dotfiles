@@ -1,3 +1,6 @@
+-- cursor
+vim.opt.guicursor = ""
+
 -- line number
 vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
@@ -19,7 +22,7 @@ vim.opt.incsearch = true -- highlight search as you input
 vim.opt.hlsearch = false -- don't highlight searches
 
 -- scroll settings
-vim.opt.scrolloff = 8 -- always have at least 8 lines from the cursor to the top or bottom of the file
+vim.opt.scrolloff = 4 -- always have at least 8 lines from the cursor to the top or bottom of the file
 
 -- cursor line
 vim.opt.cursorline = true -- highlight the current cursor line
